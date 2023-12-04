@@ -5,4 +5,4 @@
 
 sudo means superuser do. It allows you to execute commands that need administrative rights and its shown below.
 
-![](Images%5CScreenshot%202023-12-03%20235724.png)
+![](Images%5CScreenshot%202023-12-03%20015901.png)
