@@ -7,4 +7,4 @@ sudo means superuser do. It allows you to execute commands that need administrat
 
 
 
-![](./Images/Screenshot%202023-12-03%20015901.png)
+![](./Images/Snipaste_2023-12-04_23-55-47.jpg)
