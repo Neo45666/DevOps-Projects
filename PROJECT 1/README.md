@@ -1,7 +1,7 @@
 # Linux Project for Commands
 
 ## `sudo` command
-# logging
+
 
 sudo means superuser do. It allows you to execute commands that need administrative rights and its shown below.
 
