@@ -18,6 +18,6 @@ pwd is an acronym for present working directory. It is a command that displays t
 
 ## `cd` command
 
-cd means change directory and usually a directory is specified. if none, the cd command 
+cd means change directory and usually a directory is specified. It takes a single argument, which is the path of the directory to switch to. If no argument is given, it changes to the user's home directory.
 
 ![](./Images/cd%20command.PNG)
