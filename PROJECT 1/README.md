@@ -123,3 +123,40 @@ diff means difference. this command compares two contents of a file line by line
 ## `tar` command
 
 tar command archives files into a TAR file - a common linux format similar to ZIP, with optional compression. 
+
+
+# File Permissions and Ownership
+
+## `chmod` command
+
+chimon is a command that modifies a file or directory's read,write, and execute permissions. This command support optios such as `-c` or changes displays information when a change is made. 
+
+
+![](./Images/chmod_command.PNG)
+
+
+## `chown` command
+
+chown command lets you change the ownership of a file, directory, or symbolic link to a specified username. the basic format: `chown [option] owner[ :group] file(s)`
+
+
+## jobs command
+
+jobs command will display all the running processes along with their statuses. jobs syntx is: `jobs [options] jobID`
+
+
+## kill command 
+
+kill command terminates an unresponsive program manually. it will signal misbehaving applications and instruct them to close processes. The proces identification number (PID) is important to kill a program. to get the PID run: `ps ux` then `kill [signal_option]`
+
+
+## `ping` command
+
+ping command is used for checking whether a network or a server is reachable. it is also used to toubleshoot various connectivity issues. the format is:
+`ping [option] [hostname_or_address]`
+
+## `wget` command
+
+`wget`command retrieves files from the internet using HTTP, HTTPS, and FTP protocols. 
+
+![](./Images/wget_command.PNG)
