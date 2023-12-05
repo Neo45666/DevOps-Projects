@@ -69,3 +69,8 @@ rmdir stands for remove directory. It is a command that deletes an empty directo
 rm command is used to delete files within a directory. The command can also be used to remove multiple files.
 
 ![](./Images/rm_command.PNG)
+
+## touch command 
+
+With the touch command, you can create a new file without any content or update the access and modification times of an existing file in the linux command line. This command is useful for testing, scripting, or creating placeholder files.
+
