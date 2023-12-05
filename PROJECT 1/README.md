@@ -43,3 +43,10 @@ cat means concatenate. it list, combines and writes file content to the standard
 cp means copy. The command is a useful tool for copying files or directories and their content. It can be used to create backups, duplicate data, or move files between different locations.
 
 ![](./Images/cp_command.PNG)
+
+## `mv` command
+
+mv command The mv command is a useful tool for moving and renaming files and directories in a Linux system. It has the following syntax: mv [options] source destination. The source can be one or more files or directories, and the destination can be a single file or directory. The mv command will move the source to the destination, and if the destination already exists, it will overwrite it. If the source and destination are on the same filesystem, the mv command will simply rename the source. Otherwise, it will copy the source to the destination and delete the original source.
+
+
+![](./Images/mv_command.PNG)
