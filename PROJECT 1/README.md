@@ -64,3 +64,8 @@ The mkdir command allows you to create new directories in a specified location a
 rmdir stands for remove directory. It is a command that deletes an empty directory from the file system.
 
 ![](./Images/rmdir_command.PNG)
+## rm command
+
+rm command is used to delete files within a directory. The command can also be used to remove multiple files.
+
+![](./Images/rm_command.PNG)
