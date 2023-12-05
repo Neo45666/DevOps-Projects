@@ -31,3 +31,9 @@ ls means list. it list the files and directories within a system. To see the dir
 As an example, `ls -a` shows hidden files in addition to the visible ones.
 
 ![](./Images/ls_command_path.PNG)
+
+`cat` command
+
+cat means concatenate. it list, combines and writes file content to the standard output. To run the cat command, type cat followed by the file name and its extension.
+
+![](./Images/cat_command.PNG)
