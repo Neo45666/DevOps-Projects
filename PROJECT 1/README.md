@@ -90,4 +90,10 @@ find command is used to search for files within a specific directory and perform
 
 grep means global regular expression print. It is a useful tool for finding a specific word in a single file. It can scan the entire text and return the lines that contain the word. This is helpful for filtering large log files that may have a lot of irrelevant information.
 
-## 
+
+## df command
+
+df command is used to report the system's disk space usage, shown in percentage and kilobyte(KB)
+
+
+![](./Images/df_command.PNG)
