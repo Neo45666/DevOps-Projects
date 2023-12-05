@@ -14,3 +14,10 @@ sudo means superuser do. It allows you to execute commands that need administrat
 pwd is an acronym for present working directory. It is a command that displays the path of the directory where you are currently located in the file system.
 
 ![](./Images/pwd_command.PNG)
+
+
+## `cd` command
+
+cd means change directory and usually a directory is specified. if none, the cd command 
+
+![](./Images/cd%20command.PNG)
