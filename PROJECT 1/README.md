@@ -27,3 +27,7 @@ cd means change directory and usually a directory is specified. It takes a singl
 ls means list. it list the files and directories within a system. To see the directories content, type `ls` followed by the desired path.
 
 ![](./Images/ls%20command.PNG)
+
+As an example, `ls -a` shows hidden files in addition to the visible ones.
+
+![](./Images/ls_command_path.PNG)
