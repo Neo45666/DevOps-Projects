@@ -115,6 +115,11 @@ The head command is useful for displaying the beginning of a text. You can speci
 tail command displays the last ten lines of a file. it allows users to check whether a file has new data or to read error messages.
 
 
+## `diff` command
+
+diff means difference. this command compares two contents of a file line by line and displays the part that does not match.
 
 
+## `tar` command
 
+tar command archives files into a TAR file - a common linux format similar to ZIP, with optional compression. 
