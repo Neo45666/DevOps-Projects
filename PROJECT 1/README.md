@@ -50,3 +50,11 @@ mv command The mv command is a useful tool for moving and renaming files and dir
 
 
 ![](./Images/mv_command.PNG)
+
+
+## `mkdir` command
+
+The mkdir command allows you to create new directories in a specified location and assign them different permissions. You can use this command to make one or more directories at the same time.
+
+
+![](./Images/mkdir_command.PNG)
