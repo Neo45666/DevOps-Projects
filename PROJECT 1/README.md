@@ -37,3 +37,9 @@ As an example, `ls -a` shows hidden files in addition to the visible ones.
 cat means concatenate. it list, combines and writes file content to the standard output. To run the cat command, type cat followed by the file name and its extension.
 
 ![](./Images/cat_command.PNG)
+
+## `cp` command
+
+cp means copy. The command is a useful tool for copying files or directories and their content. It can be used to create backups, duplicate data, or move files between different locations.
+
+![](./Images/cp_command.PNG)
