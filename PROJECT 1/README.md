@@ -110,4 +110,11 @@ du command check how much space a file or a directory takes up.This command can 
 
 The head command is useful for displaying the beginning of a text. You can specify how many lines you want to see with an option.
 
+## `tail` command 
+
+tail command displays the last ten lines of a file. it allows users to check whether a file has new data or to read error messages.
+
+
+
+
 
