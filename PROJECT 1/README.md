@@ -104,3 +104,10 @@ df command is used to report the system's disk space usage, shown in percentage 
 du command check how much space a file or a directory takes up.This command can also identify which part of the system uses the storage excessively. 
 
 ![](./Images/du_command.PNG)
+
+
+##  `head` command
+
+The head command is useful for displaying the beginning of a text. You can specify how many lines you want to see with an option.
+
+
