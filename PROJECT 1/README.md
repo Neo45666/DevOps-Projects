@@ -129,10 +129,9 @@ tar command archives files into a TAR file - a common linux format similar to ZI
 
 ## `chmod` command
 
-chimon is a command that modifies a file or directory's read,write, and execute permissions. This command support optios such as `-c` or changes displays information when a change is made. 
+chimod is a command that modifies a file or directory's read,write, and execute permissions. This command support optios such as `-c` or changes displays information when a change is made. 
 
-
-![](./Images/chmod_command.PNG)
+![](./Images/chmod_command%20(2).PNG)
 
 
 ## `chown` command
