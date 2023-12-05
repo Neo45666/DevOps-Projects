@@ -79,3 +79,15 @@ With the touch command, you can create a new file without any content or update 
 ## locate command 
 
 locate command is a useful tool for finding a file in the database system. It can search for a file name even if it is not typed exactly as it is stored. To do this, the -i argument can be added to the locate command, which will ignore the case sensitivity of the file name.
+
+## find command
+
+find command is used to search for files within a specific directory and perform subsequent operations. 
+
+![](./Images/find_command.PNG)
+
+## grep command
+
+grep means global regular expression print. It is a useful tool for finding a specific word in a single file. It can scan the entire text and return the lines that contain the word. This is helpful for filtering large log files that may have a lot of irrelevant information.
+
+## 
