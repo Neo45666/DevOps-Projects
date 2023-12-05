@@ -74,3 +74,4 @@ rm command is used to delete files within a directory. The command can also be u
 
 With the touch command, you can create a new file without any content or update the access and modification times of an existing file in the linux command line. This command is useful for testing, scripting, or creating placeholder files.
 
+![](./Images/touch_command.PNG)
