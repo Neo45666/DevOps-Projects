@@ -185,4 +185,32 @@ echo command is a built in utility that displays a line of text or string using 
 
 ## `zip`, `unzip` commands
 
-cd 
+zip command is used to compress files into a ZIP file, and it can automatically choose the best compression ratio. it is used to also achive files and directories and reducing disk storage. The syntax: `zip archive.zip note.txt` and `unzip archive.zip`
+
+33. ## `hostname` command
+
+hostname command when executed show the system's hostname. it can be executed with or without an option.  The syntax is `hostname [option]` .
+
+
+34. ## `useradd`, `userdel` commands
+
+useradd command is used to create a new account, while passwd command allows you to add a password. while userdel command is to delete a user.
+syntax: `useradd [option] username`and `userdel username`
+
+35. ## `apt-get` command
+
+apt-get is a command retrieves information and bundles from authenticated sources to manage, update, remove, and install software and its dependencies. The syntax is: `apt get [option] (command)` 
+
+36. ## `nano, vi, jed commands
+
+nano command denotes keywords and can work with most languages `nano filename`
+
+vi commad uses two modes to work-insert and command.insert is for edit and creat file. While the command performs operations, such as savings, opening, copying, and pasting a file.
+
+jed command has a drop-down that allows users to peform actions without entering keyboard combinations or commands.
+
+
+
+
+
+
