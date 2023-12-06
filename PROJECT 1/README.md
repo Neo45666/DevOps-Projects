@@ -159,3 +159,30 @@ ping command is used for checking whether a network or a server is reachable. it
 `wget`command retrieves files from the internet using HTTP, HTTPS, and FTP protocols. 
 
 ![](./Images/wget_command.PNG)
+
+## `uname` command 
+
+uname command will print detailed information about your linux system and hardware
+
+![](./Images/uname_command.PNG)
+
+## `top` command
+
+The top command in linux terminal shows all the processes that are running and how the system is using its resources in real time. It gives a summary of the CPU and memory usage.
+
+## `history` command
+
+history command when execute the system will list up to 500 previously executed commands, allowing you to resue them without re-entering. Only users with sudo privileges can execute this command. The command supports many options such as `-c` clears the complete history list. `-d` offset deletes the history entry at the OFFSET position. -a appends history lines.
+
+## `man` command
+
+man command provides a user manual of any commands or utilities you can run in Terminal, including the name, description, and options. Section 2 of the ls command manual is: `man 2 ls`
+
+## `echo` command 
+
+echo command is a built in utility that displays a line of text or string using the standard output. 
+
+
+## `zip`, `unzip` commands
+
+cd 
