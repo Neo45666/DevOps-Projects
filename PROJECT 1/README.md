@@ -201,7 +201,7 @@ syntax: `useradd [option] username`and `userdel username`
 
 apt-get is a command retrieves information and bundles from authenticated sources to manage, update, remove, and install software and its dependencies. The syntax is: `apt get [option] (command)` 
 
-36. ## `nano, vi, jed commands
+36. ## `nano`, `vi`, `jed commands
 
 nano command denotes keywords and can work with most languages `nano filename`
 
@@ -209,6 +209,25 @@ vi commad uses two modes to work-insert and command.insert is for edit and creat
 
 jed command has a drop-down that allows users to peform actions without entering keyboard combinations or commands.
 
+37. ## `alias`, `unalias` command
+    
+alias command allows you to create a shortcut with the same functionality as a command, file name, or text. While unalias command deletes an existing `alias`.
+
+`alias Name=String` and `unalias [alias_name]`
+
+
+38. ## `su` command
+    
+`su` means switch user. this command allows you to runa program as a different user.it changes the administrative account in the current log-in session. The command is especially beneficisl for accessing the system through SSH or using the GUI display manager when the root useris unavailable. The general syntax:
+`su [options] [username [argument]]`
+
+39. ## htop command 
+
+`htop` command is an interactive program that monitors system resources and server processes in real time. the syntax is `htop [options]`
+
+40. ## ps command
+
+ps command produces snapshot of all running processes in your system. The static results are taken from the virtual files in the /proc system
 
 
 
