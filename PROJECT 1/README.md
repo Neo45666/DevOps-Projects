@@ -1,6 +1,6 @@
 # Linux Project for Commands
 
-## `sudo` command
+1. ## `sudo` command
 
 
 sudo means superuser do. It allows you to execute commands that need administrative rights and its shown below.
@@ -9,7 +9,7 @@ sudo means superuser do. It allows you to execute commands that need administrat
 ![](./Images/sudo_command.PNG)
 
 
-## `pwd` command
+2. ## `pwd` command
 
 pwd is an acronym for present working directory. It is a command that displays the path of the directory where you are currently located in the file system.
 
