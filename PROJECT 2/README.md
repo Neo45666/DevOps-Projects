@@ -1,5 +1,7 @@
 # GIT Project for Repositories and Commits 
 
+This project explains on ahigh level Git operation. Git allows developers make their own copy of the central repository which is why it is referred to as a Distributed Version Control System.  
+
 ## Initializing a GIT Repository
 
 step 1:  is to create a working folder/directory e.g DevOps folder using the command `mkdir DevOps`
