@@ -23,3 +23,28 @@ step 4: To commit your changes to git, run the command `git commit -m initial co
 The -m flag is used to provide a message. The commit message should be as descriptive as possible.
 
 ![git file command](./Images/git_file_commit.PNG)
+
+
+## Working with Branches and making a git branch
+
+Make new branch by running the command `git checkout -b my-new-branch`
+
+![git branch](./Images/git_branch.PNG)
+
+
+For listing of branches, use the command `git branch`
+
+![git branch list ](./Images/git_branch_list.PNG)
+
+## Change into an Old branch
+
+Use the command `git checkout master`
+
+![change to old branch](./Images/change_to_old_branch.PNG) 
+
+## Merging a branch into another branch 
+
+Merging refers to addition of the content of branch B into A using the comand `git merge B`
+
+![git merge](./Images/git_merge.PNG)
+
