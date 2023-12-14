@@ -85,7 +85,7 @@ step 3: click the green button below to create repository
 
  The git clone command is used to make a copy of remote repository in our local machine. The command `git clone <link to your remote repository>`
 
- # Branch Managemen3t and Tagging 
+ # Branch Management and Tagging 
 
  ## Markdown Syntax
  Markdown is commonly used for creating documents, README.files, forum posts, and even web pages. The most commonly used syntax are:
