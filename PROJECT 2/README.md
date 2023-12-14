@@ -10,7 +10,7 @@ step 3: while inside the folder , run `git init` command
 
 ![initialize folder](./Images/initialize_git_folder.PNG)
 
-## Maing the first commit
+## Making the first commit
 
 step 1: Create a file index.txt inside the working directory using the command `touch index.txt`
 
