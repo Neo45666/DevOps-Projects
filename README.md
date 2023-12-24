@@ -17,7 +17,7 @@ Welcome to the official documentation for the DevOps project. Within this reposi
 ![](https://img.shields.io/badge/Code-Python-informational?style=flat&logo=python&logoColor=white&color=2bbc8a)
 ![](https://img.shields.io/badge/Linux-Ubuntu-informational?style=flat&logo=ubuntu&logoColor=white&color=2bbc8a)
 
-## ## Prerequisites 🧰
+## Prerequisites 🧰
 Prior to commencement, ensure that the following tools are installed on your system:
 - An account with any cloud service provider - AWS, Azure, GCP, etc.
 - Putty, powershell, gitbash or any terminal based software.
