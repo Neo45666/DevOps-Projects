@@ -20,5 +20,15 @@ Welcome to the official documentation for the DevOps project. Within this reposi
 ## Prerequisites 🧰
 Prior to commencement, ensure that the following tools are installed on your system:
 - An account with any cloud service provider - AWS, Azure, GCP, etc.
-- Putty, powershell, gitbash or any terminal based software.
+- MobaXterm, powershell, gitbash or any terminal based software.
 - A screen snipping tool
+
+## Roadmap
+
+- [x] Add Changelog
+- [x] Add back to top links
+- [ ] Add Additional Templates w/ Examples
+- [ ] Add "components" document to easily copy & paste sections of the readme
+- [ ] Multi-language Support
+    - [ ] Chinese
+    - [ ] Spanish
