@@ -17,6 +17,8 @@ This project covers essential topics suchs as setting up a Linux environment, co
 - Linux server successful setup
 
 ![](./Images/ec2_connection.PNG)
+
+Connection architecture diagram:
   
 ![AWS connection](./Images/AWS_instance_connection.PNG)
 
