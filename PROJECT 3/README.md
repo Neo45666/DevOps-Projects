@@ -59,10 +59,56 @@ To check assessibility of web server on the Ubuntu shell:
 
 ![localhost launch](./Images/localhost_launch.PNG)
 
+
 To check if Apache HTTP server can respond to request from the internet,open a web browser and try to access following url
 
 ![Apache2 browser](./Images/Apache2_web_display.PNG)
 
 
+## STEP 3 - INSTALLING MYSQL
+
+With the Apache web server operational, the next step involves installing a Database Management System (DBMS) to store and manage data for the site. MySQL, a relational database management system commonly utilized within PHP environments, will be employed for this particular project
 
 
+Again, use `apt` to acquire and install this software:
+
+`sudo apt install mysql-server -y`
+
+Log into the MySQL console by typing
+
+`sudo mysql`
+
+This will connect to the MySQL server as the administrative database root user, which is inferred by the use of `sudo` when running this command 
+
+Define the users password using this command 
+`ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';`
+
+Exit the MySQL shell with the command:
+
+`mysql> exit`
+
+Start the interactive script by running:
+
+`sudo mysql_secure_installation`
+
+This will ask if you want to configure the `VALIDATE PASSWORD PLUGIN`
+
+Note: If enabled, passwords which don't match the specified criteria will be rejected by MySQL with an error. it is safe to leave validation disabled, but you should always use strong, unique passwords for database credentials.
+
+Answer `Y` for yes, or anything else to continue without enabling.
+
+The MySQL server is now install
+
+`VALIDATE PASSWORD PLUGIN can be used to test passwords`
+`and improve security. It checks the strength of password`
+`and allows the users to set only those passwords which are`
+`secure enough. Would you like to setup VALIDATE PASSWORD plugin?`
+
+`Press y|Y for Yes, any other key for No:`
+
+if the answer is "yes", you'll be asked to select a level of password validation.
+
+![mysql install](./Images/mysql_install.PNG)
+
+
+## INSTALLING PHP
