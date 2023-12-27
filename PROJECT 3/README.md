@@ -157,7 +157,7 @@ When finished save and close the file, refresh the page and you will see a page 
 ### Acknowledgement:
 * [Digital Ocean](https://marketplace.digitalocean.com/apps/lamp)
 
-## STEP-5 CRAETING A VIRTUAL HOST FOR YOUR WEBSITE USING APACHE
+## STEP-5 CREATING A VIRTUAL HOST FOR YOUR WEBSITE USING APACHE
 
 
 
