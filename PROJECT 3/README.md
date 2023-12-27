@@ -111,4 +111,47 @@ if the answer is "yes", you'll be asked to select a level of password validation
 ![mysql install](./Images/mysql_install.PNG)
 
 
-## INSTALLING PHP
+## STEP 4-INSTALLING PHP
+
+Apache has been installed to serve content and MySQL installed to store and manage your data. PHP is the component of our setup that will process code to display dynamic content to the end user. 
+
+In addition to the `php` package, you'll need `php-mysql`, a PHP module that allows PHP to communicate with MySQL-based databases. You'll need `libapache2-mod-php` to enable Apache to handle PHP files. Core PHP packages will automatically be installed as dependencies. 
+
+To install these 3 packages at once, run: 
+
+`sudo apt install php libapache2-mod-php php-mysql`
+
+Once the installation is finished you can run the following command to confirm your PHP version:
+
+`php -v`
+
+
+![PHP Installed](./Images/PHP_installation.PNG)
+
+At this point, LAMP stack is completely installed and fully operational.
+
+## STEP 5-ENABLE PHP ON THE WEBSITE
+
+With the default DirectoryIndex settings on Apache, a file named `index.html` will always take precedence over an `index.php` file. This is useful for setting up maintenance pages in PHP applications, by creating a temporary `index.html` file containing an informative messag to visitors. Because this page will take precedence over the `index.php` page, it will then become the landing page for the application. Once maintenance is over, the `index.html` is renamed or removed from the document root , bringing it back to the regular application page.
+
+in case you want to change this behaviour, you'll need to edit the `/etc/apache2/mods-enabled/dir.conf`
+
+After saving and closing the file, you will need to reload Apache so the changes take effect:
+
+`sudo systemctl reload apache2`
+
+Finally create a PHP script to test that PHP is correctly installed and configured on the server.
+Create a new file named `index.php` inside your custom web root folder:
+
+`vim /var/www/projectlamp/index.php`
+
+This will open a blank file. Add the following text, which is valid PHP code, inside the file:
+
+<?php
+phpinfo();
+
+When finished save and close the file, refresh the page and you will see a page similar to this: 
+
+![PHP test display](./Images/php_test_display.PNG)
+
+
