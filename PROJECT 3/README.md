@@ -154,5 +154,11 @@ When finished save and close the file, refresh the page and you will see a page 
 
 ![PHP test display](./Images/php_test_display.PNG)
 
+### Acknowledgement:
+* [Installating LAMP](https://marketplace.digitalocean.com/apps/lamp)
+
+## STEP-5 CRAETING A VIRTUAL HOST FOR YOUR WEBSITE USING APACHE
+
+
 
 
