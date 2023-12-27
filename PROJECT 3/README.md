@@ -147,8 +147,8 @@ Create a new file named `index.php` inside your custom web root folder:
 
 This will open a blank file. Add the following text, which is valid PHP code, inside the file:
 
-<?php
-phpinfo();
+"<?php
+phpinfo();"
 
 When finished save and close the file, refresh the page and you will see a page similar to this: 
 
