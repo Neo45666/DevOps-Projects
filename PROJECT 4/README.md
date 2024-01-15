@@ -6,26 +6,26 @@ A LEMP Stack application is an application which as opposed to a LAMP stack appl
 ## Creating an Ubuntu EC2 Instance
 Login to AWS Cloud Service console and create an Ubuntu EC2 instance. The virtual machine is a linux operating system which serves as the backbone for the LEMP Stack web application. 
 
-![ec2 instance launch ](./Images/Images%5Cec2_launch_instance.PNG)
+![ec2 instance launch ](./Images/ec2_launch_instance.PNG)
 
 ## Installing NGINX Webserver
 Run a `sudo apt update` to download package information from all configured sources.
 
-![sudo_update](./Images/Images%5Capt_update.PNG)
+![sudo_update](./Images/apt_update.PNG)
 
 Then use the command `sudo apt install nginx -y` to install nginx
 
-![install_nginx](./Images/Images%5Cinstall_nginx.PNG)
+![install_nginx](./Images/install_nginx.PNG)
 
 To verify that Nginx was successfully installed and running as a service in Ubuntu, run:
 
 `sudo systemctl status nginx`
 
-![active_nginx](./Images/Images%5Cactive_nginx.PNG)
+![active_nginx](./Images/active_nginx.PNG)
 
 Before any traffic can be received by the webserver, we need to open a TCP port 80 which is default port that web browsers use to access web pages in the internet
 
-![TCP_update](./Images/Images%5CTCP_update.PNG)
+![TCP_update](./Images/TCP_update.PNG)
 
 
 
