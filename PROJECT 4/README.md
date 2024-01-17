@@ -95,4 +95,45 @@ Paste in the following bare-bones configuration:
 
 ![server_input](./Images/server_input.PNG)
 
-![nginx_installed](./Images/nginx_installed_successfully.PNG)
+
+![nginx_successfull](./Images/nginx_successfull.PNG)
+
+## STEP 6 – Testing PHP with Nginx
+
+Your LEMP stack should now be completely set up.
+
+You can test it to validate that Nginx can correctly hand .php files off to your PHP processor.  
+You can do this by creating a test PHP file in your document root. Open a new file called info.php within your document root in your text editor:  
+`sudo nano /var/www/projectlempstack/info.php`
+
+Type or paste the following lines into the new file. This is valid PHP code that will return information about your server:
+
+```php
+<?php
+phpinfo();
+```
+
+
+
+You can now access this page in your web browser by visiting the domain name or public IP address you’ve set up in your Nginx configuration file, followed by /info.php:  
+http://PublicIPAddress/info.php  
+You will see a web page containing detailed information about your server:
+
+![Alt text](images/phpdefault.png)
+
+After checking the relevant information about your PHP server through that page, it’s best to remove the file you created as it contains sensitive information about your PHP environment and your Ubuntu server. You can use rm to remove that file:  
+`sudo rm /var/www/your_domain/info.php`
+
+You can now access this page in your web browser by visiting the domain name or public IP address you've set up in your Nginx configuration file, followed by /info.php:
+http://PublicIPAddress/info.php
+
+You will see a web page containing detailed informationabout your server.
+
+![](./Images/nginx_php.PNG)
+
+we can now access this page in the web browser by visiting the domain name or public IP address set up in the Nginx configuration file, followed by /info.php
+
+![php_display](./Images/php_display.PNG)
+
+## Connecting PHP with MYSQL and fetching content 
+
