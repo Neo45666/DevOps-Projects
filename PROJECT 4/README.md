@@ -95,6 +95,20 @@ Paste in the following bare-bones configuration:
 
 ![server_input](./Images/server_input.PNG)
 
+### ***Here’s what each of these directives and location blocks do:***
+- listen — Defines what port Nginx will listen on. In this case, it will listen on port 80, the default port for HTTP.
+
+- root — Defines the document root where the files served by this website are stored.
+
+- index — Defines in which order Nginx will prioritize index files for this website. It is a common practice to list index.html files with a higher precedence than index.php files to allow for quickly setting up a maintenance landing page in PHP applications. You can adjust these settings to better suit your application needs.
+
+- server_name — Defines which domain names and/or IP addresses this server block should respond for. Point this directive to your server’s domain name or public IP address.
+
+- location / — The first location block includes a try_files directive, which checks for the existence of files or directories matching a URI request. If Nginx cannot find the appropriate resource, it will return a 404 error.
+
+- location ~ \.php$ — This location block handles the actual PHP processing by pointing Nginx to the fastcgi-php.conf configuration file and the php7.4-fpm.sock file, which declares what socket is associated with php-fpm.
+
+- location ~ /\.ht — The last location block deals with .htaccess files, which Nginx does not process. By adding the deny all directive, if any .htaccess files happen to find their way into the document root, they will not be served to visitors.
 
 ![nginx_successfull](./Images/nginx_successfull.PNG)
 
@@ -105,6 +119,11 @@ Your LEMP stack should now be completely set up.
 You can test it to validate that Nginx can correctly hand .php files off to your PHP processor.  
 You can do this by creating a test PHP file in your document root. Open a new file called info.php within your document root in your text editor:  
 `sudo nano /var/www/projectlempstack/info.php`
+
+
+
+Activate your configuration by linking to the config file from Nginx’s sites-enabled directory:  
+`sudo ln -s /etc/nginx/sites-available/projectLEMP /etc/nginx/sites-enabled/`
 
 Type or paste the following lines into the new file. This is valid PHP code that will return information about your server:
 
@@ -136,4 +155,30 @@ we can now access this page in the web browser by visiting the domain name or pu
 ![php_display](./Images/php_display.PNG)
 
 ## Connecting PHP with MYSQL and fetching content 
+
+In this step you will create a test database (DB) with simple "To do list" and configure access to it, so the Nginx website would be able to query data from the DB and display it.
+
+First, connect to MySQL console using the root account:
+`sudo mysql`
+
+Create a new database `CREATE DATABASE <db_name>`
+
+Create a new user and assign user a password `CREATE USER 'db_user'@'%' IDENTIFIED WITH mysql_native_password BY 'db_password'`
+
+Grant the user permission over the created database `GRANT ALL ON 'db_name'.* TO 'db_user'@'%'exit` from the mysql-server in which we are currently logged in as root user and the login into mysql server using the created user.
+
+![mysql_db](./Images/create_mysql_db.PNG)
+
+You can test if the new user has the proper permissions by logging into the MySQL console again, this time using the customer user credentials:
+`mysql -u example_user -p`
+
+![test_db](./Images/test_db_created.PNG)
+
+Next , we'll create a test table named todo_list From the MySQL console, run the following statement: 
+
+ CREATE TABLE test_database.todo_list (item_id INT AUTO_INCREMENT,content VARCHAR(255),PRIMARY KEY(item_id));
+
+ 
+
+
 
