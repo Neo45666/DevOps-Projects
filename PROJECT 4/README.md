@@ -216,3 +216,6 @@ You can now access this page in your web browser by visiting the domain name or 
 IP/todo_list.php
 
 ![todo_list_display](./Images/todolist_display_browser.PNG)
+
+You should see a page like the above showing the content you’ve inserted in your test table:  
+That means your PHP environment is ready to connect and interact with your MySQL server.
