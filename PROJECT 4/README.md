@@ -13,7 +13,7 @@ Login to AWS Cloud Service console and create an Ubuntu EC2 instance. The virtua
 
 ![ec2 instance launch ](./Images/ec2_launch_instance.PNG)
 
-## Installing NGINX Webserver
+## Step 2 - Installing NGINX Webserver
 Run a `sudo apt update` to download package information from all configured sources.
 
 ![sudo_update](./Images/apt_update.PNG)
