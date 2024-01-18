@@ -178,7 +178,41 @@ Next , we'll create a test table named todo_list From the MySQL console, run the
 
  CREATE TABLE test_database.todo_list (item_id INT AUTO_INCREMENT,content VARCHAR(255),PRIMARY KEY(item_id));
 
- 
+ Insert a few rows of content in the test table. You might want to repeat the next command a few times, using different VALUES: 
+
+ `mysql> INSERT INTO example_database.todo_list (content) VALUES ("My first important item");`
+
+ To confirm that the data was successfully saved to your table, run: 
+
+ `mysql> SELECT * FROM example_database.todo_list;`
+
+ You'll see the following output:
+
+ After confirming that you have valid data in your test table, you can exit the MySQL console:
+ `mysql> exit`
+
+ ![Show_mysql_table](./Images/show_todo_list.PNG)
+
+![table_content](./Images/display_msql_tablecontent.PNG)
 
 
+Now you can create PHP script that will connect to MySQL and query for your content. Create a new PHP file in your custom web root directory
 
+`nano /var/www/projectLEMP/todo_list.php`
+
+
+***The following PHP script connects to the MySQL database and queries for the content of the todo_list table, displays the results in a list. If there is a problem with the database connection, it will throw an exception.***
+
+Copy this content into your todo_list.php script:
+
+![php_config](./Images/php_config.PNG)
+
+Save and close the file when done
+
+![todo_list_confg](./Images/todo_list_config.PNG)
+
+You can now access this page in your web browser by visiting the domain name or public IP address configured for your website, followed by /todo_list.php:
+
+IP/todo_list.php
+
+![todo_list_display](./Images/todolist_display_browser.PNG)
