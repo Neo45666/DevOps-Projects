@@ -124,7 +124,9 @@ You can do this by creating a test PHP file in your document root. Open a new fi
 Activate your configuration by linking to the config file from Nginx’s sites-enabled directory:  
 `sudo ln -s /etc/nginx/sites-available/projectLEMP /etc/nginx/sites-enabled/`
 
-Type or paste the following lines into the new file. This is valid PHP code that will return information about your server
+Type or paste the following lines into the new file. This is valid PHP code that will return information about your server:
+
+![php_file](./Images/php_file.PNG)
 
 
 You can now access this page in your web browser by visiting the domain name or public IP address you’ve set up in your Nginx configuration file, followed by /info.php:  
