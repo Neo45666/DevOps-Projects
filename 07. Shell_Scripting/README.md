@@ -41,7 +41,7 @@ The piece of code prompts you to type a number and prints a statement stating th
 ### Iterating through a list using a for loop
 
 `#!/bin/bash`
-# Example script to print numbers from 1 to 5 using a for loop¬
+### Example script to print numbers from 1 to 5 using a for loop¬
 
 `for (( i=1; i<=5; i++ ))`
 `do`
