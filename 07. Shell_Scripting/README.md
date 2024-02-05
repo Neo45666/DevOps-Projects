@@ -105,9 +105,72 @@ Step 3: Run the command `sudo chmod +x navigating-linus-filesystem.sh` to set ex
 
 Step 4: Run your script using this command  `./navigating-linux-filesystem.sh`
 
+![directory_manipulation](./images/directory_manipulation.PNG)
+
+## File Operations and Sorting 
+
+This script creates three files (file1.txt, file2.txt, and file3.txt),displays the files in their current order, sorts them alphabetically, saves the sorted files in sorted_files.txt, displays the contents of the final sorted file.
+
+Step 1. Open your terminal and create a file called sorting .sh using the command `touch sorting.sh`
+
+Step 2. Copy and paste the code block below into the file
+
+Step 3: Set execute permission on sorting.sh using this command:
+`sudo chmod +x sorting.sh`
+
+Step 4: Run your script using the command `./sorting.sh`
+
+![file_manip](./images/file_manipulation.PNG)
 
 
+## Working with Numbers and Calculations
 
+This script define two variables num1 and num2 with numeric values, performs basic arithmetic operations (addition, subtraction, multiplication, division, and modulus), and displays the results. It also performs more complex calculations such as raising num1 to the power of 2 and calculating the square root of num2, and displays those results as well.
+
+step 1: On the terminal create a file called calculations.sh using the command 
+`touch calculations.sh`
+
+step 2: Copy and paste the code block below:
+
+![calculations_sh](./images/calculations_sh.PNG)
+
+step 3: Set execute permission on calculations.sh using the command `sudo chmod +x calculations.sh`
+
+step 4: Run your script using this command `./calculations.sh`
+
+## File Backup and Timestamping 
+
+This script defines the source directory and backup directory paths. It then creates a timestamp using the current date and time, and creates a backup directory using the cp command with the -r option for recursive copying. Finally, it displays a message indicating the completion of the backup process and shows the path of the backup directory with the timestamp.
+
+Step 1: On the terminal open a file backup.sh using the commnd `touch backup.sh`
+
+Step 2: Copy and paste the code block 
+
+`#!/bin/bash`
+
+# Define the source directory and backup directory
+`source_dir="/path/to/source_directory"`
+`backup_dir="/path/to/backup_directory"`
+
+# Create a timestamp with the current date and time
+`timestamp=$(date +"%Y%m%d%H%M%S")`
+
+# Create a backup directory with the timestamp
+`backup_dir_with_timestamp="$backup_dir/backup_$timestamp"`
+
+# Create the backup directory
+`mkdir -p "$backup_dir_with_timestamp"`
+
+# Copy all files from the source directory to the backup directory
+`cp -r "$source_dir"/* "$backup_dir_with_timestamp"`
+
+# Display a message indicating the backup process is complete
+`echo "Backup completed. Files copied to: $backup_dir_with_timestamp"`
+
+step 3: Set execute permission on backup.sh using this command:
+`sudo chmod +x backup.sh`
+
+step 4: Run your script using the command: `./backup.sh`
 
 
 
