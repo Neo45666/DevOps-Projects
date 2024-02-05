@@ -51,3 +51,63 @@ The piece of code prompts you to type a number and prints a statement stating th
 
 ![sample_for_loop](./images/sample_for_loop.PNG)
 
+
+## Command Substitution
+Using backtick for command substitution
+
+`current_date = date +%Y-%m-%d`
+Using `$()` syntax for command substitution
+
+### Input and Output 
+Bash provides various ways to handle input and output. You can use the read command to accept user input and ,output using operators like > (output to a file), < (input from a file), and | (pipe the output of one command as input to another)
+
+`echo "Enter your name:"`
+`read name`
+
+### Output text to the terminal 
+
+`echo "Hello World"`
+
+To out the result of a command into a file:
+`echo "hello world" > index.txt`
+
+To pass the result of a command as input to another command 
+
+`echo "hello world" | grep "pattern"`
+
+## Functions
+Bash allows you to define and use functions to group related commands together. Functions provide a way to modularize your code and make it more reusable.
+
+![input_output](./images/input_output.PNG)
+
+## Write a shell script
+Step 1: Open a folder called shell scripting using `mkdir shell-scripting`. This would hold all the script we will write
+
+Step 2: Create a file called "user-input.sh" using the command `touch user-input.sh`
+
+Step 3: Paste the block of code inside 
+
+Step 4: Save file
+
+Step 5: Run the command `sudo chmod +x user-input.sh` this makes the file executable
+
+Step 6: Run the script using the command `./user-input.sh`
+
+![executable_file](./images/executable_file.PNG)
+
+## Directory Manipulation and Navigation
+
+Step 1: open a file named *navigating-linux-filesystem.sh*
+
+Step 2: paste the code block into the file
+
+Step 3: Run the command `sudo chmod +x navigating-linus-filesystem.sh` to set execute permission on the file.
+
+Step 4: Run your script using this command  `./navigating-linux-filesystem.sh`
+
+
+
+
+
+
+
