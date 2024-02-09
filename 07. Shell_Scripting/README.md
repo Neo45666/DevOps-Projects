@@ -1,6 +1,6 @@
 # SHELL SCRIPTING 
 
-Shell scritpting helps automate repititive task. Bash scripts are essentially a series of commands and instructions that are executed sequentially in a shell. You can create a shell script by saving collection of commands in a text file with a .sh extension. These scripts can be executed directly from the command line or called from other scripts. 
+Shell scritpting helps automate repetitive task. Bash scripts are essentially a series of commands and instructions that are executed sequentially in a shell. You can create a shell script by saving collection of commands in a text file with a .sh extension. These scripts can be executed directly from the command line or called from other scripts. 
 
 ## Shell Scripting Syntax Elements 
 
@@ -173,4 +173,37 @@ step 3: Set execute permission on backup.sh using this command:
 step 4: Run your script using the command: `./backup.sh`
 
 
+# WEB SETUP USING SHELL SCRIPT
 
+
+
+#!/bin/bash
+
+# Installing Web Server Dependencies
+echo "###################################"
+echo "Installing Dependecies"
+echo "####################################"
+apt update -y > /dev/null
+apt install -y wget unzip apache2 > /dev/null
+echo
+
+# Creating Directory
+echo "#####################################"
+echo "Create Directory"
+echo "#####################################"
+mkdir -p /tmp/webfiles 
+cd /tmp/webfiles
+wget https://www.tooplate.com/zip-templates/2107_new_spot.zip > /dev/null
+unzip 2107_new_spot.zip > /dev/null
+cp -r 2107_new_spot/* /var/www/html/          
+echo
+
+![shell_script](./images/shell_executable_script.PNG)
+
+![shell_script](./images/shell_execution_2.PNG)
+
+#!/bin/bash
+# Checking Free Memory
+
+echo "Memory Utilization"
+free -m 
