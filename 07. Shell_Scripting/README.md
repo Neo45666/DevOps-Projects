@@ -202,8 +202,29 @@ echo
 
 ![shell_script](./images/shell_execution_2.PNG)
 
+### Checking for free disk space 
 #!/bin/bash
-# Checking Free Memory
 
-echo "Memory Utilization"
-free -m 
+echo "Welcome $USER on $HOSTNAME."
+echo "############################"
+
+FREERAM=$(FREE - m | grep Mem | awk {print $4})
+ROOTFREE=$(df -h | grep 'dev/root' | awk '{print $4})
+
+echo "###########################"
+echo "available free RAM is $FREERAM MB"
+echo "############################"
+echo "The Current load is $LOAD)"
+echo "############################"
+echo "The Available ROOT partition is $ROOTFREE"
+
+# Remote Execution - Shell Scripting 
+
+echo "welcome $USER on $HOSTNAME" 
+echo "###########################"
+
+FREERAM$(free -m | grep Mem | awk '{print $4}')
+LOAD= `uptime`
+ROOTFREE 
+
+
