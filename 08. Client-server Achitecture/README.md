@@ -38,4 +38,66 @@ Then install the mysql-server package:
 Ensure that the server is running using the systemctl command:
 `sudo systemctl start mysql.service`
 
+
+![install_mysql](./images/install_mysql.PNG)
+
 `sudo systemctl status mysql.service`
+
+![active_mysql](images%5Cactive_mysql.PNG)
+
+# SETTING IT UP
+`sudo mysql`
+
+For the password I'll be using 'Password'
+
+`ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'PassWord.1';`
+
+![launch_mysql](images%5Claunch_mysql.PNG)
+
+Run a MySQL secure 2installation
+
+![mysql_secure](./images/mysql_secure_install.PNG)
+
+![secure_install_contd](./images/mysql_secure_install_contd.PNG)
+
+
+In the MySQL server create a user and a database named first_db and a user named first_user, but you can replace these names with different values.
+
+First, connect to the MySQL console using the root account:
+`sudo mysql -p`
+
+Create a new database by running this command from your MySQL console:
+`CREATE DATABASE example_database;`
+
+Create a new user and grant full privileges on the database we have just created.
+`CREATE USER 'example_user'@'%' IDENTIFIED WITH mysql_native_password BY 'PassWord';`
+
+![create_db](./images/create_db.PNG)
+
+Note: This will give the example_user user full privileges over the example_database database, while preventing this user from creating or modifying other databases on your server.
+
+Exit the MySQL shell with: `exit`
+
+Test if the new user has the proper permissions by logging in to the MySQL console again, this time using the custom user credentials:
+`mysql -u example_user -p`
+
+![test_user](./images/test_user_permission.PNG)
+
+The -p flag in this command, which will prompt us for the password used when creating the example_user user.
+
+After logging in to the MySQL console, confirm that you have access to the example_database database: mysql> `SHOW DATABASES;`
+This will give you the following output:
+
+![show_databases](./images/show_databases.PNG)
+
+Exit MySQL and restart the mySQL service using
+`sudo systemctl restart mysql` `sudo systemctl status mysql.service`
+
+![active_mysql](./images//active_mysql.PNG)
+
+You might need to configure MySQL server to allow connections from remote hosts.
+`sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf`
+
+![config_mysql](./images/config_mysql.PNG)
+
+By default, both of your EC2 virtual servers are located in the same local virtual network, so they can communicate to each other using local IP addresses. Use mysql server's local IP address to connect from mysql client. MySQL server uses TCP port 3306 by default, so you will have to open it by creating a new entry in ‘Inbound rules’ in ‘mysql server’ Security Groups.
