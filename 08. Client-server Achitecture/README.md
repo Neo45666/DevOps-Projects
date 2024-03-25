@@ -120,4 +120,4 @@ From mysql client instance connect remotely to mysql server Database using:
 
 `sudo mysql -u first_user -h <mysqlserver private ip> -p`
 
-![created_database](./images/images%5Cdatabase_created_mysql_client.PNG)
+![created_database](./images/database_created_mysql_client.PNG)
