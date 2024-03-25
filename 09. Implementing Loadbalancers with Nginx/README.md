@@ -6,6 +6,18 @@ Nginx is a versatile software that can act like a webserver, reverse proxy, and 
 
 ![loadbalancer](./images/loadbalancer_pic.PNG)
 
+# Setting Up a Basic Load Balancer
 
+We are going to be provisioning two EC2 instances running ubuntu 22.04 and install apache webserver in them. We will open port 8000 to allow traffic from anywhere and finally update the default page of the webservers to display their publicIP address.
 
-## Setting Up a Basic Load Balancer
+Next we will provision another EC" instance running ubuntu 22.04 and this time install Nginx and configure it to act as a load balancer distributing traffic across the webservers.
+
+### Step 1: Provisioning EC2 instances
+
+   Open AWS Management Console, click EC2. Scroll down the page and click on Launch instance:
+
+Console
+
+    Under Name, provide a unique name for each of your webservers:
+
+    
