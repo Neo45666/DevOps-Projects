@@ -4,7 +4,7 @@ Load balancing means distributing the work or task among several computers or se
 
 Nginx is a versatile software that can act like a webserver, reverse proxy, and a load balancer etc. All that is required is to configure it properly. 
 
-![loadbalancer](images%5Cloadbalancer_pic.PNG)
+![loadbalancer](./images/loadbalancer_pic.PNG)
 
 
 
