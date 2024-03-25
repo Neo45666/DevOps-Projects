@@ -125,3 +125,5 @@ From mysql client instance connect remotely to mysql server using:
 ![edit_inbound](./images/edit_inbound.PNG)
 
 ![created_database](./images/database_created_mysql_client.PNG)
+
+
