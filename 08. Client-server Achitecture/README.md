@@ -101,3 +101,23 @@ You might need to configure MySQL server to allow connections from remote hosts.
 ![config_mysql](./images/config_mysql.PNG)
 
 By default, both of your EC2 virtual servers are located in the same local virtual network, so they can communicate to each other using local IP addresses. Use mysql server's local IP address to connect from mysql client. MySQL server uses TCP port 3306 by default, so you will have to open it by creating a new entry in ‘Inbound rules’ in ‘mysql server’ Security Groups.
+
+
+
+
+Mysql client private ip address is used above instead of 0.0.0.0 for extra Security
+
+Save the above configurations.
+## SET UP MYSQL CLIENT
+ssh into mysql-client instance
+
+On mysql client Linux Server install MySQL client software.
+`sudo apt update && sudo apt ugrade`
+
+install the mysql-client package: `sudo apt install mysql-client -y`
+
+From mysql client instance connect remotely to mysql server Database using:
+
+`sudo mysql -u first_user -h <mysqlserver private ip> -p`
+
+![created_database](./images/images%5Cdatabase_created_mysql_client.PNG)
