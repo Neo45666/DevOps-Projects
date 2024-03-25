@@ -112,12 +112,16 @@ Save the above configurations.
 ssh into mysql-client instance
 
 On mysql client Linux Server install MySQL client software.
-`sudo apt update && sudo apt ugrade`
+`sudo apt update && sudo apt upgrade`
 
 install the mysql-client package: `sudo apt install mysql-client -y`
 
-From mysql client instance connect remotely to mysql server Database using:
+Edit inbound rules of MySQL server insering mysql-client private ip
 
 `sudo mysql -u first_user -h <mysqlserver private ip> -p`
+
+From mysql client instance connect remotely to mysql server using:
+
+![edit_inbound](./images/edit_inbound.PNG)
 
 ![created_database](./images/database_created_mysql_client.PNG)
