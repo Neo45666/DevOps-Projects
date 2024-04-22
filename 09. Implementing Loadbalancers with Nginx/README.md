@@ -82,7 +82,45 @@ Overidding the Default html file with our new html file usiwng the command below
 ![launch_port_8000](images%5CPort_8000_server.PNG)
 
 
+### step 5: Configuring Nginx as a Load Balancer
 
+Provision a new EC2 instance running on ubuntu 22.04. Make sure port 80 is opened to accept traffic from anywhere. 
+
+Next SSH into the instance. Again refer to step 3 for a refresher if needed.
+
+Install Nginx into the instance usiwng the command belwo:
+
+`sudo apt update -y && sudo apt install nginx -y`
+
+![installPNginx](./images/installing_nginx.PNG)
+
+Verify that Nginx is installed with the command below:
+
+`sudo systemctl status nginx`
+
+![Nginx_running](./images/nginx_running.PNG)
+
+Open Nginx configuration file with the command below:
+
+`sudo vi /etc/nginx/conf.d/loadbalancing.conf`
+
+Paste the configuration file below to configure file is shown below: Make sure you edit the file and provide necessary information like your server IP address etc 
+
+![nginx_config](./images/Nginx_config.PNG)
+
+upstream backend_servers defines a group of backend servers. The server lines inside the upstream block list the addresses and ports of your backend servers. proxy_pass inside the location block sets upo the load balancing passing the requess to the backend servers. The proxy_set_header lines pass necessary headers to the backend servers to correctly handle the requests.
+
+test your configuration with the command below:
+`sudo nginx -t`
+
+if there are no errors, restart Nginx to load the new configuration with the command below:
+
+`sudo systemctl restart nginx`
+
+Paste the public IP addresss of Nginx load balancer, you should see the same webpages served by the webservers.
+
+
+![Nginx_launch](./images/nginx_launch.PNG)
 
 
 
