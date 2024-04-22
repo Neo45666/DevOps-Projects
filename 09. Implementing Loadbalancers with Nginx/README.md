@@ -79,7 +79,7 @@ Overidding the Default html file with our new html file usiwng the command below
 
 `sudo systemctl restart apache2`
 
-![launch_port_8000](images%5CPort_8000_server.PNG)
+![](./images/Port_8000_server.PNG)
 
 
 ### step 5: Configuring Nginx as a Load Balancer
