@@ -20,4 +20,18 @@ Console
 
     Under Name, provide a unique name for each of your webservers:
 
-    
+### step 2: Open Port 8000
+
+This is where our server will be running while load balancers runs on port 80. we need to open port 8000 to allow traffic from anywhere. To do this we need to add a rule to the security group of each of our webserver. 
+
+### step 3: Install Apache Webserver
+
+After provisioning both of our servers and have opened the necessary ports, its time to install apache software on both servers. To do so we must first connect to each of the webservers, click on your instance id, at the top of the page click on connect. 
+
+Next install apache with the command below:
+
+![install-apache](./images/install_apache.PNG)
+
+verify that Apache is working:
+
+![confirm_apache](./images/confirm_Apache.PNG)
