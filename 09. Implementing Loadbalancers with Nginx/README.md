@@ -35,3 +35,54 @@ Next install apache with the command below:
 verify that Apache is working:
 
 ![confirm_apache](./images/confirm_Apache.PNG)
+
+### step 4: Configure Apache to server a page showing its public IP
+
+We will start by configuring Apache webserver to serve content on port 8000 instead of its default which is port 90. Then we will creaste a new ondex.html file. The file will contain code to display the public IP of the EC2 instance. we will then overide apache webserver's default html file with our new file.
+
+Configuring Apache to server content on port 8000:
+
+1. Uisng your text editor (e.g vi, nano) open the gile /etc/apache2/ports.conf
+
+`sudo vi/etc/apache2/ports.conf`
+
+2. Add a new listen directive for port 800. First type i to switch the editor to insert mode. Then add the listen directive. then save file. 
+
+![confirm_listen_port](./images/configure_listen_port.PNG)
+
+
+step 3: Next open the file /etc/apache2/sites-available/000-default conf and change port 80 on the virtualhost to 8000 like the screen shot below:
+
+![change_to_port8000](./images/vi_editor_port8000.PNG)
+
+close the file above by pressing esc key on your keyboard then the command `wqa!`
+
+Restart apache to load the new configurationusing the command:
+
+`sudo systemctl restart apache2`
+
+Creating our new html file:
+
+1. Open a new index.html file with the command : `sudo vi index.html`
+
+2. Switch vi editor to insert mode and paste the html file below. Before pasting the html file, get public IP of your EC2 instance from AWS Management Console and replace the placeholder text for IP address in the html file 
+
+![switch_editor](./images/switch_vi-_editor.PNG)
+
+3. Change file pwnership of the index html file with the command belwo:
+
+`sudo chown www-data:www-data ./index html` 
+
+![](./images/vi_editor_port8000.PNG)
+
+Overidding the Default html file with our new html file usiwng the command below:
+
+`sudo systemctl restart apache2`
+
+![launch_port_8000](images%5CPort_8000_server.PNG)
+
+
+
+
+
+
