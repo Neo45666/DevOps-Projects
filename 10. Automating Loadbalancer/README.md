@@ -1,5 +1,5 @@
 
-# Automate Development of Websers
+# Automate Deployment of Webservers
 
 ## Deploying and Configuring of Webservers
 
@@ -49,7 +49,7 @@ All the process we need to deploy our webservers has been codified in the shell 
 
 Follow the steps below to run the script:
 
-Steo 1: Provision an EC2 instance running ubuntu 20.04. You can refer to how to implementing load balancer with Nginx for refresher.
+Step 1: Provision an EC2 instance running ubuntu 20.04. You can refer to how to implementing load balancer with Nginx for refresher.
 
 step 2: Open port 8000 to allow traffic from anywhere using the security group. 
 
@@ -121,7 +121,7 @@ step 2: Copy and paste the script belwo in the file:
     `sudo chmod 777 -R /etc/nginx/`
 
     
-    `echo " upstream backend_servers` {
+    `echo " upstream backend_servers` {`
 
             `# your are to replace the public IP and Port to that of your webservers`
             `server  "${firstWebserver}"; # public IP and port for webserser 1`
@@ -139,7 +139,7 @@ step 2: Copy and paste the script belwo in the file:
     } " > /etc/nginx/conf.d/loadbalancer.conf
 fi`
 
-sudo nginx -t`
+`sudo nginx -t`
 
 sudo systemctl restart nginx`
 
