@@ -76,7 +76,9 @@ step 6: Run the shell script using the command below. Make sure you read the ins
 
 # Deploying and Configuring Nginx Load Balancer
 
-Deploying and Configuring Nginx Load Balancer with Nginx course has been codified in the script below:
+Having successfully deployed and configured two webservers, then to configure load balancer. As a prerequisite, we need to provision an EC2 instance running on ubuntu 22.04, open port 80 to anywhere using the security group and connect to the load balancer via the terminal.
+
+Deploying and Configuring Nginx Load Balancer with Nginx has been codified in the script below:
 
 step 1: On your terminal open a file nginx.sh using the command below:
 
@@ -153,10 +155,10 @@ step 5: Run the script with the command below:
 
 .`./nginx.sh PUBLIC_IP webserver-01 webserver-02`
 
-`![webserver_nginx](./images/
-webserver_2_nginx.PNG)`
+![nginx_loadbalancer](./images/nginx_loadbalancer.PNG)
 
 
+![loadbalance_launch](./images/loadbalancer_nginx.PNG)
 
-`![webserver_02_lauch](./images/webserver_02_launch.PNG)`
+
 
