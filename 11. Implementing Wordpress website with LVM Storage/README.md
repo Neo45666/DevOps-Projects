@@ -78,3 +78,118 @@ Type "n" then "p" to display the new partition table.
 
 ![disk_configure](./images/disk_configure.PNG)
 
+Type "w" to write table to disk
+
+![write_disk1](./images/write_on_disk1.PNG)
+
+Repeat the process for the three disk i.e /dev/xvdf, /dev/xvdg, /dev/xvdh.
+
+Use `lsblk` utility to view the newly configured partition on each of the 3 disk.
+
+![partiton_complete](./images/partiton%2Bcomplete.PNG)
+
+Install `lvm2` package using  `sudo yum install lvm2`
+
+![install_lvm2](./images/install_lvm2.PNG)
+
+Run `sudo lvmdiskscan` to check available partitions.
+
+![scan_disk](./images/scan_disk.PNG)
+
+Use pvcreate utility to mark each of the 3 disks as physical volumes (PVs) to be used by LVM.
+
+`sudo pvcreate /dev/xvdf1`
+`sudo pvcreate /dev/xvdg1`
+`sudo pvcreate /dev/xvdh1`
+
+![pvcreate_disk](./images/pvcreate_disk.PNG)
+
+Verify that your physical volume has been created successfully by running `sudo pvs`
+
+![sudo_pvs](./images/sudo_pvs.PNG)
+
+Use vgcreate utility to add all 3 PVs to a volume group (VG). Name the VG webdata-vg
+
+`sudo vgcreate webdata-vg /dev/xvdh1 /dev/xvdg1 /dev/xvdf1`
+
+Verify that your VG has been created successfully by running `sudo vgs`
+
+![create_webdata](./images/create_webdata.PNG)
+
+Use lvcreate utility to create 2 logical volumes. apps-lv (Use  half of the PV size), and logs-lv (Use the remaining space of the PV size).
+
+The apps-lv will be used to store data for the Website wjile, logs-lv will be used to store data for logs. 
+
+`sudo lvcreate -n apps-lv -L 14G webdata-vg`
+
+`sudo lvcreate -n logs-lv -L 14G webdata-vg`
+
+![create_logical_volume](./images/create_logical_volume.PNG)
+
+Verify that your Logical Volume has been created successfully by running `sudo lvs`
+
+![logical_volume_created](./images/verify_logical_volume_creation.PNG)
+
+Verify the entire setup
+
+`sudo vgdisplay -v #view complete setup -VG, PV, and LV`
+
+`sudo lsblk`
+
+![verifySetup](./images/VerifySetup.PNG)
+
+![verifySetup2](./images/verifySetup2.PNG)
+
+Use "mkfs.ext4" to format the logical volumes with "ext4" filesystem
+`sudo mkfs -t ext4 /dev/webdata-vg/apps-lv`
+
+`sudo mkfs -t ext4 /dev/webdata-vg/logs-lv`
+
+![webdataConfig](./images/webdataConfig.PNG)
+
+Create "/var/www/html" directory to store website files
+
+`sudo mkdir -p /var/www/html`
+
+Create /home/recovery/logs to store backup of log data
+
+`sudo mkdir -p /home/recovery/logs`
+
+Mount "/var/www/html" on "apps-lv" logical volume
+
+`sudo mount /dev/webdata-vg/apps-lv /var/www/html/
+
+Use rsync utility to backup all the files in the log directory "/var/log" into "/home/recovery/logs" (This is required before mounting the file system).
+
+`sudo rsync -av /var/log/. /home/recovery/logs/`
+
+![craeteandmount](./images/createAndMountFiles.PNG)
+
+Update "/etc/fstab file" so that the mount configuration will persist after restart of the server.
+
+UPDATE THE "/ETC/FSTAB" FILE.
+
+The UUID of the device will be used to update the /etc/fstab file;
+
+`sudo blkid`
+
+![updatefiles](./images/updatefiles.PNG)
+
+Open the "/etc/fstab"
+
+`sudo vi /etc/fstab`
+
+Update /etc/fstab in this format using your own UUID and rememeber to remove the leading and ending quotes.
+
+Test the configuration by running this command. There will be no errors if everything is okay.
+
+`sudo mount -a`
+
+`df -h`
+
+
+## Prepare the Database Server
+
+Launch a second RedHat EC2 instance that will have a role - 'DB Server'. Repeat the same steps as for the webserver, but instead of apps-lv create db-lv and mount it to /db directory instead of /var/www/html/.
+
+The apps-lv will be used to store data for the Website while, logs-lv will be used to store data for logs.
