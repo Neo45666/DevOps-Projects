@@ -43,5 +43,38 @@ We will use __RedHat OS(centos)__ for this project.
 
 After logging into our AWS console, we go to __EC2__ and click on _"volume"_ under __Elastic block store(EBS)__.
 
+Learn How to Add EBS volume to an EC2 instance [here](https://www.youtube.com/watch?v=HPXnXkBzIHw)
 
+How to create an aws free tier account. click [here](https://www.youtube.com/watch?v=xxKuB9kJoYM&list=PLtPuNR8I4TvkwU7Zu0l0G_uwtSUXLckvh&index=7)
+
+This launches us into the instance as shown in the screenshot:
+
+
+![](./images/create_instance_wp.PNG)
+
+Click on __"create volume"__
+
+![](./images/create_volumes_wp.PNG)
+
+Open the Linux terminal, connect to the instance.
+
+Use ```lsblk``` command to inspect what block devices are attached to the server. Notice names of your newly created devices. All devices in Linux reside in /dev/ directory. Inspect it with ls /dev/ and make sure you see all 3 newly created block devices there – their names will likely be xvdf, xvdh, xvdg.
+
+![view_volumes](./images/view_volumes.PNG)
+
+Use `df -h` command to see all mounts and free space on your server.
+
+Use `gdisk` utility to create a single partition on each of the 3 disks.
+
+`sud gdisk /dev/xvdf`
+
+type "?" to display the available options . Then "P" "which represents print the partition table"
+
+![partition_disk](./images/partition_disk.PNG)
+
+From the options displayed, "n" represents "add  a new partition".
+
+Type "n" then "p" to display the new partition table.
+
+![disk_configure](./images/disk_configure.PNG)
 
