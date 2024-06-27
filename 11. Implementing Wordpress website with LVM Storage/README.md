@@ -404,4 +404,37 @@ Configure DB to work with WordPress
 
 ![setup_MySQL](./images/setup_MySQL.PNG)
 
+`sudo mysql -p`
+
+`mysql> CREATE DATABASE `wordpress`;`
+
+`mysql> CREATE USER 'myuser'@'%' IDENTIFIED WITH mysql_native_password BY 'S**la@@zaa';`
+
+`mysql> GRANT ALL ON example_database.* TO 'myuser'@'%';`
+
+`mysql> exit;`
+
+`mysql -u example_user -p`
+
+`mysql> SHOW DATABASES;`
+
+![create_database](./images/create_database.PNG)
+
+Open MySQL port 3306 on DB Server EC2. For extra security, you shall allow access to the DB server ONLY from your Web Server’s IP address, so in the Inbound Rule configuration specify source as /32
+
+![editDB_Inbound_Rule](./images/edit_DB_inboundrulesWithWebserverIP.PNG)
+
+Install MySQL client and test that you can connect from your Web Server to your DB server by using mysql-client.
+
+`sudo yum install mysql`
+
+![connectDBtoWebserver](./images/connectWebserverToDB.PNG)
+
+Connecting webserver to DBserver and Verify if you can successfully execute SHOW DATABASES; command and see a list of existing databases.
+
+`sudo mysql -u myuser -p -h <DB-Server-Private-IP-address>`
+
+
+
+
 
