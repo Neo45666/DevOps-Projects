@@ -193,3 +193,215 @@ Test the configuration by running this command. There will be no errors if every
 Launch a second RedHat EC2 instance that will have a role - 'DB Server'. Repeat the same steps as for the webserver, but instead of apps-lv create db-lv and mount it to /db directory instead of /var/www/html/.
 
 The apps-lv will be used to store data for the Website while, logs-lv will be used to store data for logs.
+
+`sudo lvcreate -n db-lv -L 14G webdata-vg`
+
+`sudo lvcreate -n logs-lv -L 14G webdata-vg`
+
+Verify that your Logical Volume has been created successfully by running
+
+`sudo lvs`
+
+Verify the entire setup
+
+`sudo vgdisplay -v #view complete setup - VG, PV, and LV`
+
+`sudo lsblk`
+
+Use mkfs.ext4 to format the logical volumes with ext4 filesystem.
+
+`sudo mkfs -t ext4 /dev/webdata-vg/db-lv`
+
+`sudo mkfs -t ext4 /dev/webdata-vg/logs-lv`
+
+Create db directory to store database files
+
+`sudo mkdir db`
+
+Create /home/recovery/logs to store backup of log data
+
+`sudo mkdir -p /home/recovery/logs`
+
+Mount db/ on db-lv logical volume
+
+`sudo mount /dev/webdata-vg/db-lv db/`
+
+Use rsync utility to backup all the files in the log directory /var/log into /home/recovery/logs (This is required before mounting the file system).
+
+`sudo rsync -av /var/log/. /home/recovery/logs/`
+
+Mount /var/log on logs-lv logical volume. (all the existing data on /var/log will be deleted.)
+
+`sudo mount /dev/webdata-vg/logs-lv /var/log`
+
+Restore log files back into /var/log directory
+
+`sudo rsync -av /home/recovery/logs/. /var/log`
+
+![db+setup](./images/db_setup.PNG)
+
+The UUID of the device will be used to update the /etc/fstab file;
+
+`sudo blkid`
+
+![updateDBFiles](./images/updateFileinDB.PNG)
+
+Open the "/etc/fstab" file.
+
+`sudo vi /etc/fstab`
+
+Update "/etc/fstab" in this format using your own UUID and rememeber to remove the leading and ending quotes.
+
+Test the configuration for errors.
+
+`sudo mount -a`
+
+Reload daemon
+
+`sudo systemctl daemon-reload`
+
+Verify your setup by running
+
+`df -h`
+
+![TestConfig](./images/TestConfig.PNG)
+
+## Install WordPress on your Web Server EC2
+
+Update the repository
+
+`sudo yum -y update`
+
+![installwordpress](./images/InstallWordpress.PNG)
+
+Install wget, Apache and it’s dependencies
+
+`sudo yum -y install wget httpd php php-mysqlnd php-fpm php-json`
+
+![install_wget_Apache](./images/install_wget_Apache_Dep.PNG)
+
+Start Apache
+
+`sudo systemctl start httpd`
+
+Enable Apache
+
+`sudo systemctl enable httpd`
+
+Verify Apache status
+
+`sudo systemctl status httpd`
+
+![StartApache](./images/StartApache.PNG)
+
+To install PHP and it’s depemdencies
+
+`sudo yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm`
+
+`sudo yum install yum-utils http://rpms.remirepo.net/enterprise/remi-release-8.rpm`
+
+`sudo yum module list php`
+
+`sudo yum module reset php`
+
+`sudo yum module enable php:remi-7.4`
+
+`sudo yum install php php-opcache php-gd php-curl php-mysqlnd`
+
+![](./images/installPHP1.PNG)
+![](./images/InstallPHP2.PNG)
+![](./images/InstallPHP3.PNG)
+![](./images/InstallPHP4.PNG)
+![](./images/InstallPHP5.PNG)
+
+Start php and set policies
+
+`sudo systemctl start php-fpm`
+
+Enable php
+
+`sudo systemctl enable php-fpm`
+
+verify php status
+
+`sudo systemctl status php-fpm`
+
+`sudo setsebool -P httpd_execmem 1`
+
+`Restart Apache`
+
+`sudo systemctl restart httpd`
+
+![InstallPHPAndPolicies](./images/InstasllPHPAndPolicies.PNG)
+
+Copy the IP address of the webserver to the browser to see that the apache is working properly. (Edit inbound rule to port 80 on webserver)
+
+![TestApache](./images/TestApache.PNG)
+
+Download wordpress and copy wordpress to "var/www/html"
+
+Create directory wordpress and cd into the directory.
+
+`mkdir wordpress`
+
+`cd   wordpress`
+
+Download the wordpress file
+
+`sudo wget http://wordpress.org/latest.tar.gz`
+
+Unzip the file
+
+`sudo tar xzvf latest.tar.gz`
+
+![DownloadWordPress](./images/DownloadWordpress.PNG)
+
+`sudo rm -rf latest.tar.gz`
+
+Copy "wordpress/wp-config-sample.php" into "wordpress/wp-config.php"
+
+N/B: wordpress/wp-config.php" will be created.
+
+`sudo cp wordpress/wp-config-sample.php wordpress/wp-config.php`
+
+Copy wordpress into "/var/www/html".
+
+![CopyWordPress](./images/CopyWordPress.PNG)
+
+## Install MySQL on your DB Server EC2
+
+Update the repository
+
+`sudo yum update -y`
+
+![InstallMySQL](./images/InstallMySQLonDBServer.PNG)
+
+Install mysql-server
+
+`sudo yum install mysql-server`
+
+![InstallandVerifyMySQL](./images/InstallandVerifyMySQL.PNG)
+
+Verify that the service is up and running, if it is not running, restart the service and enable it so it will be running even after reboot:
+
+`sudo systemctl restart mysqld`
+
+`sudo systemctl enable mysqld`
+
+`sudo systemctl status mysqld`
+
+![MySQLActive](./images/mysql_active.PNG)
+
+Configure DB to work with WordPress
+
+`sudo mysql`
+
+`mysql> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'PassWord.1';`
+
+`mysql> exit;`
+
+`sudo mysql_secure_installation`
+
+![setup_MySQL](./images/setup_MySQL.PNG)
+
+
