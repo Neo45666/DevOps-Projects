@@ -111,6 +111,163 @@ verify that logical volumes has been created successfully using by running `sudo
 
 ![createlogicalvolumes](./images/create_logical_volumes.PNG)
 
+9. Verify the enire setup
+
+`sudo vgdisplay -v #view complete setup - VG, PV, and LV`
+`sudo lsblk`
+
+![verifysetup](./images/verify_setup.PNG)
+
+
+10. Use mkfs.ext4 to format the logical volumes with ext4 filesystem.
+
+`sudo mkfs -t ext4 /dev/webdata-vg/apps-lv`
+`sudo mkfs -t ext4 /dev/webdata-vg/logs-lv`
+
+11. Create /var/www/html directory to store website files
+`sudo mkdir -p /var/www/html`
+
+12. Create /home/recovery/logs to store backup of log data
+`sudo mkdir -p /home/recovery/logs`
+
+13. Mount /var/www/html on apps-lv logical volume
+`sudo mount /dev/webdata-vg/apps-lv /var/www/html/`
+
+14. Use `rsync` utility to backup all the files in the log directory /var/log into /home/recovery/logs(This is required before mounting the file system)
+
+`sudo rsync -av /var/log/. /home/recovery/logs/`
+
+15. Mount /var/log on logs-lv logical volume (Note that all the existing data on /var/log will be deleted. That is why step 11 above is very important)
+
+`sudo mount /dev/webdata-vg/logs-lv /var/log
+
+16. Restore log files back into /var/log directory
+
+`sudo rsync -av /home/recovery/logs/log/. /var/log`
+
+17. Update /etc/fstab file so that the mount configuration will persist after restart of the server.
+
+The UUID of the device will be used to update the `/etc/fstab` file.
+
+`sudo blkid`
+
+![sudoblkid](./images/sudoblkid.PNG) 
+
+
+18. Test the configuration and reload the daemon
+
+`sudo mount -a`
+`sudo systemctl daemon reload`
+
+19. Verify your setup by running `df -h`, output must look like this: 
+
+![VerifyAllSetup](./images/verifyAllSetup.PNG)
+
+
+## Installing wordpress and configuring to use MySQL Database
+
+1. - Prepare the Database Server
+Launch a second RedHat EC2 instance that will have a role - 'DB Server' Repeat the same steps as for the Web Server but instead of `apps-lv` create `db-lv` and mount it to `/db` directly instead of `/var/www/html/`.
+
+2. Install Wordpress on your Web Server EC2
+   - Update the repository
+  `sudo yum -y update`
+
+   - Install wget, Apache and its dependencies
+- `sudo yum -y install wget httpd php   php-mysql php-fpm php-json`
+
+Start Apache
+`sudo systemctl enable httpd`
+`sudo systemctl start httpd`
+
+To install PHP and it's dependencies
+sudo yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+sudo yum install yum-utils http://rpms.remirepo.net/enterprise/remi-release-8.rpm
+sudo yum module list php
+sudo yum module reset php
+sudo yum module enable php:remi-7.4
+sudo yum install php php-opcache php-gd php-curl php-mysqlnd
+sudo systemctl start php-fpm
+sudo systemctl enable php-fpm
+setsebool -P httpd_execmem 1
+
+Restart Apache
+`sudo systemctl restart httpd`
+
+Download wordpress and copy wordpress to `var/www/html`
+
+mkdir wordpress
+cd   wordpress
+sudo wget http://wordpress.org/latest.tar.gz
+sudo tar xzvf latest.tar.gz
+sudo rm -rf latest.tar.gz
+cp wordpress/wp-config-sample.php wordpress/wp-config.php
+cp -R wordpress /var/www/html/
+
+Configure SELinux Policies
+
+ sudo chown -R apache:apache /var/www/html/wordpress
+ sudo chcon -t httpd_sys_rw_content_t /var/www/html/wordpress -R
+ sudo setsebool -P httpd_can_network_connect=1
+
+Install MYSQL on your DB Server EC2
+
+`sudo yum update`
+`sudo yum install mysql-server`
+
+Verify that the service uo and running by using `sudo systemctl status mysqld`. if it is not running, restart the service and enable it so it will be running even after reboot:
+
+`sudo systemctl restart mysqld`
+`sudo systemctl enable mysqld`
+
+Configure DB to work with WordPress
+`sudo mysql`
+`CREATE DATABASE wordpress;`
+`CREATE USER `myuser`@`<Web-Server-Private-IP-Address>` IDENTIFIED BY 'mypass';
+`GRANT ALL ON wordpress.* TO 'myuser'@'<Web-Server-Private-IP-Address>';
+`FLUSH PRIVILEGES;`
+`SHOW DATABASES;`
+`exit`
+
+Configure WordPress to connect to remote database.
+
+Hint: Do not forget to open MySQL port 3306 on DB Server EC2. For extra security, you shall allow access to the DB Server ONLY from your Web Server's IP address, so in the inbound Rule configuration specify source as /32
+
+![mysqlClient](./images/mysql-client.PNG)
+
+Install MySQL client and test that you can connect from your Web Server to your DB server by using `mysql client`
+
+`sudo yum install mysql`
+`sudo mysql -u admin -p -h <DB-Server-Private-IP-address>
+
+Verify if you can successfully execute `SHOW DATABASES;` command and see a list of existing databases
+
+Change permission and configuration so Apache could use WordPress:
+
+Enable TCP port 80 in bound Rules configuration for your Webservere EC2 (enable from everywhere 0.0.0.0/0 or from your work station's IP)
+
+Try to access from your browser the link to your WordPress `http://<web-server-Public-IP-Address>/wordpress/
+
+![wordpresslaunch](./images/wordpress.PNG)
+
+Fill out your DB credentials:
+
+![wordpress2](./images/wordpress2.PNG)
+
+if you see this message it means your Wordpress has successfully connected to your remote MySqL database
+
+![wordpress3](./images/wordpress3.PNG)
+
+
+
+
+
+
+
+
+
+
+
 
 
 
