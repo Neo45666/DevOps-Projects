@@ -34,11 +34,14 @@ Prior to commencement, ensure that the following tools are installed on your sys
 ## List of the Projects 📚
 1. Introduction to Linux Commands
 2. Version Control System (VCS): Git
-1. Setting up a LAMP stack
-2. Setting up a LEMP stack
-3. Setting up a MEAN stack
-4. Settting up a MERN stack
-5. Client-Server architecture
-6. Three-tier architecture with wordpress
-7. Devops tooling website solution
-8. Load balancer solution with apache
+3. Setting up a LAMP stack
+4. Setting up a LEMP stack
+5. Setting up a MEAN stack
+6. Settting up a MERN stack
+7. Shell Scripting
+8. Client-Server Architecture
+9. Implementing Loadbalancer with Nginx
+10. Automating Loadbalancer
+11. Implementing Wordpress website with LVM storage
+   
+
