@@ -21,5 +21,21 @@ It is important to know what storage solution is suitable for what use cases, fo
 
 1. Spin up a new EC2 instance with RHEL Linux 8 Operating System.
    Based on your LVM experience from the three-tier architecture project, Configure LVM on the Server.
-   
-   Instead of formatting the disks as ext4, you will have to format them as xfs
+
+   However, Instead of formatting the disks as ext4, you will have to format them as xfs
+![](./images/lvmsetup1.PNG)
+
+![](./images/lvmsetup2.PNG)
+
+![](./images/lvmsetup3.PNG)
+
+![](./images/lvmsetup4.PNG)
+
+![](./images/lvmsetup6.PNG)
+
+
+
+
+
+
+
