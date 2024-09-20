@@ -44,9 +44,9 @@ Prior to commencement, ensure that the following tools are installed on your sys
 10. Automating Loadbalancer
 11. Implementing Wordpress website with LVM storage
 12. DevOps Tooling Website Solution
-13. Ansible Configuration Management - Automate project
-14. Ansible refactoring and static assignments (import and roles)
-15. Ansible dynamic assignments (include) and community roles.
+13. Load Balancer Solution with Apache
+13. Ansible refactoring and static assignments (import and roles)
+14. Ansible dynamic assignments (include) and community roles.
 
    
 
