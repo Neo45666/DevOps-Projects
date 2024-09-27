@@ -17,7 +17,7 @@ Three-tier Architecture is a client-server software architecture pattern that co
 
 3. Data Access or Management Layer: This is the layer for computer data storage and data access. Database server or File system Server such as FTP server or NFS Server.
 
-![representation](./images/image_representation.PNG)
+![Representation](./images/image_representation.PNG)
 
 To implement LVM on Linux xservers follow the steps:
 
