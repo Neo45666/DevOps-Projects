@@ -21,7 +21,9 @@ As a member of a DevOps team, you will implement a tooling website solution whic
 3. Database Server: One Ubuntu 20.04 + MySQL
 4. Storage Server: One Red Hat Enterprise Linux 8 + NFS Server
 5. Programming Language: PHP
-6. Code Repository: GitHub On the diagram below you can see a common pattern where several stateless Web Servers share a common database and also access the same files using Network File Sytem (NFS) as a shared file storage. Even though the NFS server might be located on a completely separate hardware – for Web Servers it look like a local file system from where they can serve the same files.
+
+On the diagram below you can see a common pattern where several stateless Web Servers share a common database and also access the same files using [Network File Sytem (NFS)](https://en.wikipedia.org/wiki/Network_File_System) as a shared file storage. Even though the NFS server might be located on a completely separate hardware - for Web Servers it look like a local file system from where they can serve the same files.
+
 
 ![nfs_achitecture](./images/nfs_achitecture.PNG)
 
@@ -50,10 +52,6 @@ In this project you will implement a solution that consists of following compone
 ![](./images/public%20images%20prj7.PNG) ![](./images/search%20for%20AMI.PNG)
 
 ![](./images/launch%20instance%20from%20template.PNG)
-
-On the diagram below you can see a common pattern where several stateless Web Servers share a common database and also access the same files using [Network File Sytem (NFS)](https://en.wikipedia.org/wiki/Network_File_System) as a shared file storage. Even though the NFS server might be located on a completely separate hardware - for Web Servers it look like a local file system from where they can serve the same files.
-
-<img src="https://darey-io-pbl-projects-images.s3.eu-west-2.amazonaws.com/project7/Tooling-Website-Infrastructure.png" width="936px" height="550px">
 
 It is important to know what storage solution is suitable for what use cases, for this - you need to answer following questions: what data will be stored, in what format, how this data will be accessed, by whom, from where, how frequently, etc. Base on this you will be able to choose the right storage system for your solution. 
 
