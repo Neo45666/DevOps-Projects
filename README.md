@@ -32,21 +32,19 @@ Prior to commencement, ensure that the following tools are installed on your sys
     - [ ] Spanish
 
 ## List of the Projects 📚
-1. Introduction to Linux Commands
-2. Version Control System (VCS): Git
-3. Setting up a LAMP stack
-4. Setting up a LEMP stack
-5. Setting up a MEAN stack
-6. Settting up a MERN stack
-7. Shell Scripting
-8. Client-Server Architecture
-9. Implementing Loadbalancer with Nginx
-10. Automating Loadbalancer
-11. Implementing Wordpress website with LVM storage
-12. DevOps Tooling Website Solution
-13. Load Balancer Solution with Apache
-13. Ansible refactoring and static assignments (import and roles)
-14. Ansible dynamic assignments (include) and community roles.
+1.  Introduction to Linux Commands
+2.  Version Control System (VCS): Git
+2a. Shell Scripting
+3.  Setting up a LAMP stack
+3a. Setting up a LEMP stack
+3b. Setting up a MERN stack
+3c. Settting up a MEAN stack
+3d.  Client-Server Architecture
+4.  Implementing Loadbalancer with Nginx
+4b.  Automating Loadbalancer
+6.  Implementing Wordpress website with LVM storage
+7.  DevOps Tooling Website Solution
+8.  Load Balancer Solution with Apache
 
    
 
