@@ -45,6 +45,14 @@ Prior to commencement, ensure that the following tools are installed on your sys
 6.  Implementing Wordpress website with LVM storage
 7.  DevOps Tooling Website Solution
 8.  Load Balancer Solution with Apache
+9.  Tooling Websites deployment automation with Continous     
+Integration - Jenkins
+10. Load Balancer Solution with Nginx and SSL
+11. Ansible Configuration Management - Automate Projects 7 to 10
+12. Ansible Refactoring & Static Assignments (imports and Roles)
+13. Ansible Dynamic Assignmnets (include) and Community Roles
+14. Experience Continous Integration with Jenkins, Ansible, Artifactory, SinarQube, PHP
+15. AWS Cloud Solution for 2 Company Websites Using A Reverse Proxy Technology
 
    
 
