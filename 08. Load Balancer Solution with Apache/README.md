@@ -50,7 +50,7 @@ Make sure that you have following servers installed and configured within Projec
 
 2. Open TCP port 80 on `Project-8-apache-lb` by creating an Inbound Rule in Security Group.
 
-3. Install Apache Load Balancer on `Project-12-apache-lb` server and configure it to point traffic coming to LB to both Web Servers:
+3. Install Apache Load Balancer on `Project-8-apache-lb` server and configure it to point traffic coming to LB to both Web Servers:
 
 ```
 #Install apache2
