@@ -16,7 +16,7 @@ Horizontal scaling allows to adapt to current load by adding (scale out) or remo
 
 Property of a system (in our case it is Web tier) to be able to handle growing load by adding resources, is called ["Scalability"](https://en.wikipedia.org/wiki/Scalability).
 
-In our set up in Project-7 we had 3 Web Servers and each of them had its own public IP address and public DNS name. A client has to access them by using different URLs, which is not a nice user experience to remember addresses/names of even 3 server, let alone millions of [Google servers](https://en.wikipedia.org/wiki/Google_data_centers).
+In our set up in Project-11 we had 3 Web Servers and each of them had its own public IP address and public DNS name. A client has to access them by using different URLs, which is not a nice user experience to remember addresses/names of even 3 server, let alone millions of [Google servers](https://en.wikipedia.org/wiki/Google_data_centers).
 
 In order to hide all this complexity and to have a single point of access with a single public IP address/name, a [Load Balancer](https://en.wikipedia.org/wiki/Load_balancing_(computing)) can be used. A Load Balancer (LB) distributes clients' requests among underlying Web Servers and makes sure that the load is distributed in an optimal way.
 
@@ -28,3 +28,68 @@ Let us take a look at the updated solution architecture with an LB added on top 
 <img src="https://darey-io-pbl-projects-images.s3.eu-west-2.amazonaws.com/project8/Tooling-Website-Infrastructure-wLB.png" width="936px" height="550px">
 
 In this project we will enhance our **Tooling Website** solution by adding a Load Balancer to disctribute traffic between Web Servers and allow users to access our website using a single URL.
+
+#### Task
+
+Deploy and configure an Apache Load Balancer for **Tooling Website** solution on a separate Ubuntu EC2 intance. Make sure that users can be served by Web servers through the Load Balancer.
+
+To simplify, let us implement this solution with **2 Web Servers**, the approach will be the same for 3 and more Web Servers.
+
+#### Prerequisites
+
+Make sure that you have following servers installed and configured within Project-7:
+1. Two RHEL8 Web Servers
+2. One MySQL DB Server (based on Ubuntu 20.04)
+3. One RHEL8 NFS server
+
+#### Configure Apache As A Load Balancer
+
+1. Create an Ubuntu Server 20.04 EC2 instance and name it `Project-8-apache-lb`, so your EC2 list will look like this:
+
+<img src="https://darey-io-pbl-projects-images.s3.eu-west-2.amazonaws.com/project8/project8_ec2.png" width="936px" height="550px">
+
+2. Open TCP port 80 on `Project-8-apache-lb` by creating an Inbound Rule in Security Group.
+
+3. Install Apache Load Balancer on `Project-12-apache-lb` server and configure it to point traffic coming to LB to both Web Servers:
+
+```
+#Install apache2
+sudo apt update
+sudo apt install apache2 -y
+sudo apt-get install libxml2-dev
+
+#Enable following modules:
+sudo a2enmod rewrite
+sudo a2enmod proxy
+sudo a2enmod proxy_balancer
+sudo a2enmod proxy_http
+sudo a2enmod headers
+sudo a2enmod lbmethod_bytraffic
+
+#Restart apache2 service
+sudo systemctl restart apache2
+```
+
+Make sure apache2 is up and running
+
+```
+sudo systemctl status apache2
+```
+
+Configure load balancing
+
+```
+sudo vi /etc/apache2/sites-available/000-default.conf
+
+#Add this configuration into this section <VirtualHost *:80>  </VirtualHost>
+
+<Proxy "balancer://mycluster">
+               BalancerMember http://<WebServer1-Private-IP-Address>:80 loadfactor=5 timeout=1
+               BalancerMember http://<WebServer2-Private-IP-Address>:80 loadfactor=5 timeout=1
+               ProxySet lbmethod=bytraffic
+               # ProxySet lbmethod=byrequests
+        </Proxy>
+
+        ProxyPreserveHost On
+        ProxyPass / balancer://mycluster/
+        ProxyPassReverse / balancer://mycluster/
