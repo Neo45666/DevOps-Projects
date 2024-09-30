@@ -39,9 +39,9 @@ Prior to commencement, ensure that the following tools are installed on your sys
 3a. Setting up a LEMP stack
 3b. Setting up a MERN stack
 3c. Settting up a MEAN stack
-3d.  Client-Server Architecture
+3d. Client-Server Architecture
 4.  Implementing Loadbalancer with Nginx
-4b.  Automating Loadbalancer
+5. Automating Loadbalancer
 6.  Implementing Wordpress website with LVM storage
 7.  DevOps Tooling Website Solution
 8.  Load Balancer Solution with Apache
